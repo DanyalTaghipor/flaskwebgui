@@ -1,0 +1,21 @@
+replicaCount: 1
+
+image:
+  repository: danytgh/webgui
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 5000
+
+ingress:
+  enabled: true
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+
+  hosts:
+    - host: <DOMAIN>
+      paths:
+        - path: /
+          pathType: Prefix
