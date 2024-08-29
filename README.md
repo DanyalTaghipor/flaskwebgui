@@ -81,7 +81,15 @@ The `Jenkinsfile` in your project repository is pre-configured with the necessar
 - **Push Docker Image**: Pushes the built image to Docker Hub.
 - **Deploy to Kubernetes**: Uses Helm to deploy the application to the Kubernetes cluster.
 
-### Step 3: Run the Pipeline
+### Step 3: Set Up Environment Variables
+
+In your Jenkins pipeline, make sure the following environment variables are correctly configured:
+
+- `DOCKER_IMAGE`: This should be set to your Docker Hub repository, e.g., `danytgh/webgui`.
+
+The `Jenkinsfile` will automatically pull the repository, build the image, and push it to Docker Hub. It will then deploy the application to your Kubernetes cluster using Helm.
+
+### Step 4: Run the Pipeline
 
 - After setting up the pipeline, click "Build Now" to run the pipeline.
 - Monitor the build process in the Jenkins console output.
